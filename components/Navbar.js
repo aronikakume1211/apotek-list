@@ -10,15 +10,18 @@ const Navbar = () => {
           </a>
         </Link>
       </div>
-      <Link href='/'>
-        <a>Home</a>
-      </Link>
-      <Link href='/about'>
-        <a>About</a>
-      </Link>
-      <Link href='/apoteks'>
-        <a>Users</a>
-      </Link>
+      <div>
+        <Link href='/'>
+          <a>Home</a>
+        </Link>
+        <Link href='/about'>
+          <a>About</a>
+        </Link>
+        <Link href='/apoteks'>
+          <a>Users</a>
+        </Link>
+      </div>
+
 
     </nav>
   );
