@@ -5,6 +5,7 @@ const about = () => {
       <Head>
         <title>apoteks List | About</title>
         <meta name='keywords' content='apoteks' />
+        <meta name='description' content='Lorem ipsum is placeholder text' />
       </Head>
       <div>
         <h1>About</h1>

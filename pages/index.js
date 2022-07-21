@@ -11,6 +11,7 @@ export default function Home() {
       <Head>
         <title>apoteks List | Home</title>
         <meta name='keywords' content='apoteks' />
+        <meta name='description' content='Lorem ipsum is placeholder text' />
       </Head>
       <div>
         <h1 className={styles.title}>Home page</h1>

@@ -14,6 +14,7 @@ const NotFound = () => {
       <Head>
         <title>apoteks List | 404</title>
         <meta name='keywords' content='apoteks' />
+        <meta name='description' content='Lorem ipsum is placeholder text' />
       </Head>
       <div className="not-found">
         <h1>Ooops.....</h1>

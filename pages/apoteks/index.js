@@ -16,6 +16,7 @@ const index = ({ apoteks }) => {
       <Head>
         <title>apoteks List | apoteks</title>
         <meta name='keywords' content='apoteks' />
+        <meta name='description' content='Lorem ipsum is placeholder text' />
       </Head>
       <div>
         <h1>All Users Lists</h1>
