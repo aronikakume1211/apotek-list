@@ -3,8 +3,8 @@ const about = () => {
   return (
     <>
       <Head>
-        <title>Ninjas List | About</title>
-        <meta name='keywords' content='ninjas' />
+        <title>apoteks List | About</title>
+        <meta name='keywords' content='apoteks' />
       </Head>
       <div>
         <h1>About</h1>

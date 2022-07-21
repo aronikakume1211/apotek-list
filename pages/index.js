@@ -9,16 +9,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ninjas List | Home</title>
-        <meta name='keywords' content='ninjas' />
+        <title>apoteks List | Home</title>
+        <meta name='keywords' content='apoteks' />
       </Head>
       <div>
         <h1 className={styles.title}>Home page</h1>
         <p className={styles.text}> Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p>
         <p className={styles.text}> Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups</p>
-        <Link href="/ninjas">
+        <Link href="/apoteks">
           <a className={styles.btn}>
-            See Ninjas List
+            See apoteks List
           </a>
         </Link>
       </div>

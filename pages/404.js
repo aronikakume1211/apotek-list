@@ -12,8 +12,8 @@ const NotFound = () => {
   return (
     <>
       <Head>
-        <title>Ninjas List | 404</title>
-        <meta name='keywords' content='ninjas' />
+        <title>apoteks List | 404</title>
+        <meta name='keywords' content='apoteks' />
       </Head>
       <div className="not-found">
         <h1>Ooops.....</h1>
