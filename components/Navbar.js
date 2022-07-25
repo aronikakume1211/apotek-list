@@ -1,6 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getPages, getPosts, getJobs } from "../utils/wordpress";
+import { useEffect, useState } from "react"
+
 const Navbar = () => {
+  const [pages, setPages] = useState([])
+  useEffect(() => {
+    getPages().then(page => {
+      setPages(page)
+    })
+  }, [])
+
+  // Sort page by ID
+  pages.sort((a, b) => {
+    return a.id - b.id
+  })
+
   return (
     <nav>
       <div className="logo">
@@ -11,20 +26,24 @@ const Navbar = () => {
         </Link>
       </div>
       <div>
-        <Link href='/'>
-          <a>Home</a>
-        </Link>
-        <Link href='/about'>
-          <a>About</a>
-        </Link>
-        <Link href='/apoteks'>
-          <a>Users</a>
-        </Link>
+        {
+          pages.map((page, index) => {
+            if (index == 5) {
+              return
+            } else {
+              return (
+                <Link href={page.slug == 'home' ? '/' : page.slug} key={index}>
+                  <a>{page.title.rendered}</a>
+                </Link>
+              )
+            }
+          })
+        }
       </div>
-
-
     </nav>
   );
 }
+
+
 
 export default Navbar;

@@ -3,13 +3,16 @@ import styles from '../../styles/apoteks.module.css';
 import Link from "next/link";
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const url = 'http://localhost:3005/wp-json/wp/v2/jobs';
+  // const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  // const data = await res.json();
+  const res = await fetch(url);
   const data = await res.json();
-
   return {
     props: { apoteks: data }
   }
 }
+
 const index = ({ apoteks }) => {
   return (
     <>
@@ -19,12 +22,12 @@ const index = ({ apoteks }) => {
         <meta name='description' content='Lorem ipsum is placeholder text' />
       </Head>
       <div>
-        <h1>All Users Lists</h1>
+        <h1>Job Lists</h1>
         <div>
           {apoteks.map(apotek => (
             <Link href={'apoteks/' + apotek.id} key={apotek.id}  >
               <a className={styles.single}>
-                <h3>{apotek.name}</h3>
+                <h3>{apotek.title.rendered}</h3>
               </a>
             </Link >
           ))}
