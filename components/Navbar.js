@@ -1,49 +1,59 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getPages, getPosts, getJobs } from "../utils/wordpress";
+import { getPages, getPosts, getJobs, getMenus } from "../utils/wordpress";
 import { useEffect, useState } from "react"
 
-const Navbar = () => {
-  const [pages, setPages] = useState([])
+
+
+export const useScrollHandler = () => {
+  const [scroll, setScroll] = useState(false);
   useEffect(() => {
-    getPages().then(page => {
-      setPages(page)
+    const onScroll = () => {
+      const scrollCheck = window.scrollY > 10;
+      setScroll(scrollCheck);
+    }
+    document.addEventListener('scroll', onScroll)
+    return () => {
+      document.removeEventListener('scroll', onScroll)
+    }
+  }, [scroll, setScroll]);
+  return scroll
+}
+const Navbar = () => {
+  const [menus, setMenus] = useState([]);
+  const scroll = useScrollHandler();
+
+  useEffect(() => {
+    getMenus().then(menus => {
+      setMenus(menus)
     })
   }, [])
 
-  // Sort page by ID
-  pages.sort((a, b) => {
-    return a.id - b.id
-  })
-
   return (
-    <nav>
+    <nav className={scroll ? 'sticky' : ''}>
       <div className="logo">
         <Link href="/">
           <a>
-            <Image src="/apotek.png" alt="apoteck" width={128} height={37} />
+            <Image src="/ADDISSOFTWARE.png" alt="apoteck" width={148} height={17} />
           </a>
         </Link>
       </div>
       <div>
         {
-          pages.map((page, index) => {
-            if (index == 5) {
-              return
-            } else {
-              return (
-                <Link href={page.slug == 'home' ? '/' : page.slug} key={index}>
-                  <a>{page.title.rendered}</a>
-                </Link>
-              )
-            }
+          menus?.map((menu, index) => {
+
+            const subPage = menu?.url.split('/');
+            return (
+              <Link href={subPage[3] ? subPage[3] : '/'} key={index}>
+                <a className="capitalize text-slate-700" >{menu?.title}</a>
+              </Link>
+            )
+
           })
         }
       </div>
     </nav>
   );
 }
-
-
 
 export default Navbar;

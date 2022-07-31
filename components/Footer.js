@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer>
-      Copyright &copy; <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
+      Copyright &copy; <a href="http://creativecommons.org/licenses/by/3.0/">Addis software PLC</a>.
     </footer>
   );
 }

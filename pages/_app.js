@@ -1,8 +1,13 @@
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 import Head from 'next/head'
+import NextNProgress from 'nextjs-progressbar'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
+
 
   return (
     <Layout>
@@ -15,6 +20,14 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
       </Head>
+      {/* <NextNProgress
+        color="#29D"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={true}
+      /> */}
+      <NextNProgress options={{ easing: "ease", speed: 500 }} color="#fb8b01" />
       <Component {...pageProps} />
     </Layout>
   )

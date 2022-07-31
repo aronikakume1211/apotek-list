@@ -1,18 +1,32 @@
 //  /utils/wordpress.js
 
 const BASE_URL = 'http://localhost:3005/wp-json/wp/v2';
+// const MENU_URL = 'http://localhost:3005/wp-json/wp/v2/menu';
 
 // Return the pages
 export async function getPages() {
   const pages = await fetch(BASE_URL + '/pages')
     .then(response => response.json())
-
     .then(pages => {
       return pages
     })
-  console.log(pages);
   return pages
 }
+
+export async function getPage(slug) {
+  const pages = await getPages();
+  const pageArray = pages.filter(page => page.slug === slug);
+  const page = pageArray.length > 0 ? pageArray[0] : null;
+  return page;
+}
+
+// GET MENU
+export async function getMenus() {
+  const menusRes = await fetch(BASE_URL + '/menu');
+  const menus = await menusRes.json();
+  return menus
+}
+
 // return the posts
 export async function getPosts() {
   const postsRes = await fetch(BASE_URL + '/posts?_embed');
@@ -51,6 +65,9 @@ export async function getSlugs(type) {
       break;
     case 'jobs':
       elements = await getJobs();
+      break;
+    case 'careers':
+      elements = await getPages();
       break;
   }
   const elementsIds = elements.map(element => {
